@@ -9,7 +9,7 @@ import MarketingApp from './components/MarketingApp';
 import Header from './components/Header';
 
 import Booking from './components/Booking';
-
+import CustomerApp from './components/CustomerApp';
 
 
 const generateClassName = createGenerateClassName({
@@ -24,6 +24,7 @@ export default () => {
           <Header />
           <Booking />
           <MarketingApp />
+          <CustomerApp />
         </div>
       </StylesProvider>
     </BrowserRouter>
