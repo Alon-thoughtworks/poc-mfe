@@ -1,0 +1,16 @@
+{
+    "a@a.com":{
+        "first_name": "Alon",
+        "second_name": "Cohn",
+        "email": "a@a.com",
+        "token": "sometoken",
+        "password": "password"
+    },
+    "l@l.com":{
+        "first_name": "Lin",
+        "second_name": "Fang",
+        "email": "l@l.com",
+        "token": "sometoken",
+        "password": "password"
+    }
+}
