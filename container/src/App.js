@@ -1,15 +1,10 @@
 import React from 'react';
 import {
-  BrowserRouter,
-  Switch,
-  Route,
-  Link
+    BrowserRouter,
+    Switch,
+    Route,
+    Link
 } from "react-router-dom";
-
-import {
-  StylesProvider,
-  createGenerateClassName,
-} from '@material-ui/core/styles';
 
 import MarketingApp from './components/MarketingApp';
 import Header from './components/Header';
@@ -17,34 +12,32 @@ import Header from './components/Header';
 import Booking from './components/Booking';
 import CustomerApp from './components/CustomerApp';
 import Signin from './components/Signin';
-
-const generateClassName = createGenerateClassName({
-  productionPrefix: 'co',
-});
+import {lufthansaTheme, swissTheme} from "./theme";
+import {ThemeProvider} from "styled-components";
 
 export default () => {
-  return (
-    <BrowserRouter>
-      <StylesProvider generateClassName={generateClassName}>
-        <Switch>
-            <Route exact path="/signin">
-                <Signin />
-            </Route>
-            {/* <Route path="/booking">
+    return (
+        <BrowserRouter>
+            <ThemeProvider theme={swissTheme}>
+                <Switch>
+                    <Route exact path="/signin">
+                        <Signin/>
+                    </Route>
+                    {/* <Route path="/booking">
               <Booking />
             </Route>
             <Route path="/marketing">
               <MarketingApp />
             </Route> */}
-            <Route path="/">
-              <div>
-                <Header />
-                <h1>Welcome!</h1>
-              </div>
-              {/* <Homepage></Homepage> */}
-            </Route>
-        </Switch>
-      </StylesProvider>
-    </BrowserRouter>
-  );
+                    <Route path="/">
+                        <div className="home_wrapper">
+                            <Header/>
+                            <h1>Welcome!</h1>
+                        </div>
+                    </Route>
+                </Switch>
+            </ThemeProvider>
+
+        </BrowserRouter>
+    );
 };
