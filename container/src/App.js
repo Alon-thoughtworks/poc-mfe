@@ -18,7 +18,7 @@ import {ThemeProvider} from "styled-components";
 export default () => {
     return (
         <BrowserRouter>
-            <ThemeProvider theme={swissTheme}>
+            <ThemeProvider theme={lufthansaTheme}>
                 <Switch>
                     <Route exact path="/signin">
                         <Signin/>
@@ -29,13 +29,9 @@ export default () => {
             <Route path="/marketing">
               <MarketingApp />
             </Route> */}
-                    <Route path="/booking">
-                        <Booking/>
-                    </Route>
                     <Route path="/">
-                        <div className="home_wrapper">\
+                        <div className="home_wrapper">
                             <Header/>
-                            <h1>Welcome!</h1>
                             <Route path="/booking">
                                 <Booking />
                             </Route>

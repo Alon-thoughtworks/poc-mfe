@@ -1,11 +1,14 @@
 <div >
+  <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+
   <h3>Booking system</h3>
   <div *ngIf="!validBookingNr">
+
     <form (ngSubmit)="onSubmit()">
       <label>Booking Number:</label>
       <!-- <input type='text' placeholder="XYZa6" (ngModelChange)="onBookingNumChange($event.target)"> -->
       <input [(ngModel)]="bookingNum" name="bookingNum">
-      <input type='submit' value="Search" />
+      <input type='submit' value="Search" class='search-button' />
       {{error}}
     </form>
   </div>
