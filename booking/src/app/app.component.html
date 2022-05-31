@@ -1,4 +1,18 @@
-<div>
-  I am an angular Booking
-  <!-- <img src="http://localhost:3002/assets/logo.png" class="angular-logo"> -->
+<div >
+  <h3>Booking system</h3>
+  <div *ngIf="!validBookingNr">
+    <form (ngSubmit)="onSubmit()">
+      <label>Booking Number:</label>
+      <!-- <input type='text' placeholder="XYZa6" (ngModelChange)="onBookingNumChange($event.target)"> -->
+      <input [(ngModel)]="bookingNum" name="bookingNum">
+      <input type='submit' value="Search" />
+      {{error}}
+    </form>
+  </div>
+  <div *ngIf="validBookingNr">
+    <app-booking-status [bookingNumer]="bookingNum"></app-booking-status>
+  </div>
+  
 </div>
+
+<!-- [value]="bookingNum" -->
