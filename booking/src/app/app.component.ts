@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
 import { BookingStatusComponent } from './booking-status/booking-status.component';
+import {kebabCase, forEach} from 'lodash';
+import {Theme} from "../loadApp";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,7 +11,15 @@ export class AppComponent {
   bookingNum = ''
   error = ''
   validBookingNr= false
-  
+
+  constructor(private element: ElementRef, private theme: Theme) {
+  }
+
+  ngOnInit(): void {
+    forEach(this.theme, (value, key) => {
+      this.element.nativeElement.style.setProperty(`--${kebabCase(key)}`, value);
+    });
+  }
 
   onBookingNumChange(searchValue: string): void{
     this.bookingNum = searchValue

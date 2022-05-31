@@ -29,8 +29,11 @@ export default () => {
             <Route path="/marketing">
               <MarketingApp />
             </Route> */}
+                    <Route path="/booking">
+                        <Booking/>
+                    </Route>
                     <Route path="/">
-                        <div className="home_wrapper">
+                        <div className="home_wrapper">\
                             <Header/>
                             <h1>Welcome!</h1>
                             <Route path="/booking">
