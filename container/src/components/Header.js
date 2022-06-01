@@ -1,19 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {useHistory} from 'react-router-dom';
 import styled from "styled-components";
-
-function getUserProfile() {
-    return JSON.parse(localStorage.getItem('Lufthansa-user')) || false;
-}
-
-function removeUserProfile() {
-    return localStorage.removeItem('Lufthansa-user');
-}
+import { Link } from "react-router-dom";
 
 const TopHeader = styled.div`
   padding: 1em 2em;
   background-color: ${props => props.theme.mainColor};
   color: ${props => props.theme.mainTextColor};
+  margin-bottom: 0.5em;
 `;
 
 const ProfileList = styled.ul`
@@ -43,6 +37,13 @@ const NavButton = styled(Button)`
   color: #fff;
 `;
 
+const NavLink = styled.li`
+  & > a {
+    color: ${props => props.theme.secondColor};
+    margin-right: 1em;
+  }
+`;
+
 const LastColumn = styled.li`
   flex: 1;
   & > button {
@@ -50,15 +51,9 @@ const LastColumn = styled.li`
   }
 `;
 
-export default function Header() {
+export default function Header({isLogin, onSignOut}) {
     let history = useHistory();
 
-    const [isLogin, setIsLogin] = useState(getUserProfile());
-
-    const onSignOut = () => {
-        removeUserProfile();
-        setIsLogin(false)
-    };
     const onSignIn = () => {
         history.push("/signin");
     };
@@ -67,7 +62,8 @@ export default function Header() {
         <TopHeader>
             <nav>
                 <ProfileList>
-                    <li><h3>Lufthansa</h3></li>
+                    <NavLink><Link to="/booking">Booking</Link></NavLink>
+                    <NavLink><Link to="/loyalty">loyalty</Link></NavLink>
                     <LastColumn>
                         {isLogin ? <Button> {isLogin['first_name']}</Button> : null}
                         {isLogin ?

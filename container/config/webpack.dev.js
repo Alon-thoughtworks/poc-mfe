@@ -18,7 +18,9 @@ const devConfig = {
       remotes: {
         marketing: 'marketing@http://localhost:8081/remoteEntry.js',
         booking: "booking@http://localhost:8082/remoteEntry.js",
-        customer: "customer@http://localhost:8083/remoteEntry.js"
+        customer: "customer@http://localhost:8083/remoteEntry.js",
+        loyalty: "loyalty@http://localhost:8084/remoteEntry.js"
+
       },
       shared: packageJson.dependencies,
     }),
