@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     BrowserRouter,
     Switch,
@@ -6,13 +6,11 @@ import {
 } from "react-router-dom";
 
 // import MarketingApp from './components/MarketingApp';
-// import Booking from './components/Booking';
+import Booking from './components/Booking';
 // import CustomerApp from './components/CustomerApp';
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import LoyaltyModule from './components/Loyalty';
-import Signin from './components/Signin';
-import { lufthansaTheme, swissTheme } from "./theme";
-import { ThemeProvider } from "styled-components";
+import Signin from './components/Header/Signin';
 
 
 function getUserProfile() {
@@ -33,7 +31,6 @@ export default () => {
 
     return (
         <BrowserRouter>
-            <ThemeProvider theme={lufthansaTheme}>
                 <Switch>
                     <Route exact path="/signin">
                         <Signin/>
@@ -41,9 +38,9 @@ export default () => {
                     <Route path="/">
                         <div className="home_wrapper">
                             <Header {...{isLogin, onSignOut}}/>
-                            {/* <Route path="/booking">
+                            <Route path="/booking">
                                 <Booking />
-                            </Route> */}
+                            </Route>
                              {/* <Route path="/marketing">
                                 <MarketingApp />
                             </Route>  */}
@@ -54,7 +51,6 @@ export default () => {
                         </div>
                     </Route>
                 </Switch>
-            </ThemeProvider>
         </BrowserRouter>
     );
 };

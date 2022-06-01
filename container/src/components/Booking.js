@@ -3,11 +3,11 @@ import { ThemeContext } from 'styled-components'
 import {mount} from "booking/Booking";
 
 const Booking = (props) => {
-  const currentTheme = useContext(ThemeContext);
+  // const currentTheme = useContext(ThemeContext);
 
   // const ref = useRef(null);
   useEffect(() => {
-    mount(currentTheme);
+    mount();
   }, []);   
   return <div className=""><app-root></app-root></div>;
 };
