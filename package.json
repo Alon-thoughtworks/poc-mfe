@@ -5,7 +5,8 @@
       "booking",
       "container",
       "customer-service",
-      "marketing"
+      "marketing",
+      "loyalty"
     ]
   },
   "scripts": {
