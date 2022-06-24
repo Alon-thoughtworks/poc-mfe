@@ -1,19 +1,25 @@
 import {LitElement, html} from 'lit';
-import {customElement} from 'lit/decorators.js';
+import {customElement, property} from 'lit/decorators.js';
 
 @customElement('count-listener')
 export class CountListener extends LitElement {
+  @property({type: Number})
+  count = 0;
 
   override render() {
     return html`
+      <div>Listened Count: ${this.count}</div>
       <div>
-        <p @countchanged=${this._countChangedListener}><slot></slot></p>
+        <slot></slot>
       </div>
     `;
   }
 
-  private _countChangedListener(e: CustomEvent) {
-    console.log('-----> Hi', e);
+  override connectedCallback(){
+    super.connectedCallback();
+    this.addEventListener('count-changed', (e: any) => {
+      this.count = e.detail.count;
+    });
   }
 }
 

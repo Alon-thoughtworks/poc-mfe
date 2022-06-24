@@ -5,19 +5,30 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { LitElement, html } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 let CountListener = class CountListener extends LitElement {
+    constructor() {
+        super(...arguments);
+        this.count = 0;
+    }
     render() {
         return html `
+      <div>Listened Count: ${this.count}</div>
       <div>
-        <p @countchanged=${this._countChangedListener}><slot></slot></p>
+        <slot></slot>
       </div>
     `;
     }
-    _countChangedListener(e) {
-        console.log('-----> Hi', e);
+    connectedCallback() {
+        super.connectedCallback();
+        this.addEventListener('count-changed', (e) => {
+            this.count = e.detail.count;
+        });
     }
 };
+__decorate([
+    property({ type: Number })
+], CountListener.prototype, "count", void 0);
 CountListener = __decorate([
     customElement('count-listener')
 ], CountListener);

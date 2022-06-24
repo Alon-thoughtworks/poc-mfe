@@ -1,5 +1,5 @@
-import React, {createElement, useEffect, useRef} from "react";
-import '../../shared-components/my-element';
+import React, {useEffect, useRef} from "react";
+import '../../shared-components';
 
 function App() {
     const myElementEl = useRef(null);
@@ -12,13 +12,14 @@ function App() {
   return (
     <div className="App">
       Hello customer!!!
-        <my-element ref={myElementEl}>
-            <p>first counter</p>
-        </my-element>
-
-        <my-element ref={myElementEl}>
-            <p>second counter</p>
-        </my-element>
+        <count-listener>
+            <my-element  ref={myElementEl}>
+                <p>first counter</p>
+            </my-element>
+            <my-element>
+                <p>first counter</p>
+            </my-element>
+        </count-listener>
     </div>
   );
 }

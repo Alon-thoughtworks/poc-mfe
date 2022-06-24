@@ -1,7 +1,8 @@
 import { LitElement } from 'lit';
 export declare class CountListener extends LitElement {
+    count: number;
     render(): import("lit-html").TemplateResult<1>;
-    private _countChangedListener;
+    connectedCallback(): void;
 }
 declare global {
     interface HTMLElementTagNameMap {
