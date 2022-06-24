@@ -6,7 +6,8 @@
       "container",
       "customer-service",
       "marketing",
-      "loyalty"
+      "loyalty",
+      "shared-components"
     ]
   },
   "scripts": {
